@@ -110,11 +110,66 @@ for busser in bussers_on:
 combined_names = list(money_earned_servers.keys()) + list(money_earned_bussers.keys())
 combined_money_earned = list(money_earned_servers.values()) + list(money_earned_bussers.values())
 combined_hours_worked = list(time_worked_servers.values()) + list(time_worked_bussers.values())
+
+
+for busser in bussers_on:
+    tips.append(0) #even out list
+
+type_of_employee = []
+for server in servers_on:
+    type_of_employee.append("SERVER") #For coloring purposes later
+for busser in bussers_on:
+    type_of_employee.append("BUSSER")
 data = {
     "Name": combined_names,
     "Money Made": combined_money_earned,
-    "Hours Worked": combined_hours_worked
+    "Hours Worked": combined_hours_worked,
+    "Tips Made": tips,
+    "Type": type_of_employee
 }
 
 df = pd.DataFrame(data)
 print(df)
+top_n = len(servers_on)  # or make this a Streamlit slider for flexibility
+df_only_servers = df.sort_values("Tips Made", ascending=False).head(top_n)
+
+#
+##
+###
+####
+##### Main Dashboard:
+st.title("Stats")
+col1, col2, col3 = st.columns(3)
+col1.metric(label = "Total sales", value = f"$(TBD)")
+col2.metric(label = "Total tips", value =f"${total_tips}")
+col3.metric(label = "Highest earner", value =f"{df_only_servers["Name"].iloc[0]}")
+# First Graph, Who made the most:
+st.subheader("Who made the most?")
+if not df_only_servers.empty:
+    
+    most_made = alt.Chart(df_only_servers).mark_bar().encode(
+        x = alt.X("Name:N", sort="-y", title="Servers"),
+        y = alt.Y("Tips Made:Q", title="Tips Made ($)"),
+        tooltip=["Name", "Tips Made", "Hours Worked"]
+    ).properties(
+        width = 600, height = 400
+    )
+    st.altair_chart(most_made, use_container_width=True)
+else:
+    st.info("Not enough data")
+#
+#
+# Second graph, Total Tip Breakdown
+st.subheader("How much everyone made")
+if not df.empty:
+    total_breakdown = alt.Chart(df).mark_bar().encode(
+        x = alt.X("Name:N", sort = "-y", title = "Tip breakdown"),
+        y = alt.Y("Money Made:Q", title= "Tips Made ($)"),
+        color = alt.Color("Type:N", title="Role",),
+        tooltip= ["Name", "Money Made", "Hours Worked" ]
+    ).properties(
+        width = 600, height = 400
+    )
+    st.altair_chart(total_breakdown, use_container_width=True)
+else:
+    st.info("Not enough data")
