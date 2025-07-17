@@ -10,10 +10,13 @@ runners = ["Runner 1", "Runner 2", "Runner 3"]
 st.sidebar.header("Data")
 servers_on = st.sidebar.multiselect("Servers on:", servers,)
 tips = []
+sales = []
 for server in servers_on: #Makes sure inputs are a number, adds them to list tips which will be used for pd df
     tip = st.sidebar.text_input(f"{server} tips:").strip()
+    sale = st.sidebar.text_input(f"{server} sales:").strip()
     try:
         tips.append(float(tip))
+        sales.append(float(sale))
         # st.sidebar.text(f"Nice job {server}!")# TODO -- Shit on underperforming severs
     except:
         st.sidebar.text("Please enter server's tips in number format")
@@ -61,6 +64,7 @@ if "Busser" in earlybird_response:
 ####
 ##### Mathy math time
 total_tips = sum(tips)
+total_sales = sum(sales)
 runners_cut = len(servers_on)* len(runners_on) * 10 #runners get 10 dollars per server each
 if bussers_on == 1:
     bussers_cut = 0.1 * total_tips
@@ -84,7 +88,7 @@ total_hours_worked_bussers = sum(time_worked_bussers.values())
 for server in servers_on:
     percentage = round(time_worked_servers[server] / total_hours_worked_servers, 3)
     percentage_of_server_cut[server] = percentage
-#                                                     # creates dictionaries like this: {person : percentage of respective cut}
+#                                      # creates dictionaries like this: {person : percentage of respective cut}
 for busser in bussers_on:
     percentage = round(time_worked_bussers[busser] / total_hours_worked_bussers, 3)
     percentage_of_busser_cut[busser] = percentage
@@ -114,6 +118,7 @@ combined_hours_worked = list(time_worked_servers.values()) + list(time_worked_bu
 
 for busser in bussers_on:
     tips.append(0) #even out list
+    sales.append(0)
 
 type_of_employee = []
 for server in servers_on:
@@ -125,13 +130,19 @@ data = {
     "Money Made": combined_money_earned,
     "Hours Worked": combined_hours_worked,
     "Tips Made": tips,
+    "Sales Made": sales,
     "Type": type_of_employee
 }
 
 df = pd.DataFrame(data)
+df["Ratio"] = round(df["Tips Made"] / df["Sales Made"], 2)
+
 print(df)
-top_n = len(servers_on)  # or make this a Streamlit slider for flexibility
-df_only_servers = df.sort_values("Tips Made", ascending=False).head(top_n)
+
+df_servers = df[df["Type"] == "SERVER"]
+df_servers = df_servers.sort_values("Ratio", ascending=False)
+highest_tipped_ratio = df_servers.iloc[0]["Ratio"]
+highest_tipped_ratio_person = df_servers.iloc[0]["Name"]
 
 #
 ##
@@ -139,15 +150,20 @@ df_only_servers = df.sort_values("Tips Made", ascending=False).head(top_n)
 ####
 ##### Main Dashboard:
 st.title("Stats")
-col1, col2, col3 = st.columns(3)
-col1.metric(label = "Total sales", value = f"$(TBD)")
+col1, col2, col3, col4= st.columns([1,1,1,1])
+col1.metric(label = "Total sales", value = f"${total_sales}")
 col2.metric(label = "Total tips", value =f"${total_tips}")
-col3.metric(label = "Highest earner", value =f"{df_only_servers["Name"].iloc[0]}")
+col3.metric(label = "Highest earner", value =f"{df_servers["Name"].iloc[0]}")
+col4.metric(
+    label="Highest percentage tipped",
+    value=f"{highest_tipped_ratio * 100}%",
+    delta=highest_tipped_ratio_person
+)
 # First Graph, Who made the most:
-st.subheader("Who made the most?")
-if not df_only_servers.empty:
+st.subheader("Who brought in the most?")
+if not df_servers.empty:
     
-    most_made = alt.Chart(df_only_servers).mark_bar().encode(
+    most_made = alt.Chart(df_servers).mark_bar().encode(
         x = alt.X("Name:N", sort="-y", title="Servers"),
         y = alt.Y("Tips Made:Q", title="Tips Made ($)"),
         tooltip=["Name", "Tips Made", "Hours Worked"]
@@ -173,3 +189,6 @@ if not df.empty:
     st.altair_chart(total_breakdown, use_container_width=True)
 else:
     st.info("Not enough data")
+#
+#
+# Third graph, tips_earned to money made chart
