@@ -156,8 +156,8 @@ col2.metric(label = "Total tips", value =f"${total_tips}")
 col3.metric(label = "Highest earner", value =f"{df_servers["Name"].iloc[0]}")
 col4.metric(
     label="Highest percentage tipped",
-    value=f"{highest_tipped_ratio * 100}%",
-    delta=highest_tipped_ratio_person
+    value=highest_tipped_ratio_person,
+    delta=f"{highest_tipped_ratio * 100}%"
 )
 # First Graph, Who made the most:
 st.subheader("Who brought in the most?")
