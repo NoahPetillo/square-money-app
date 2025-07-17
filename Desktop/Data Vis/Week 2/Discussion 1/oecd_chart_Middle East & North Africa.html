@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point", "shape": "triangle", "strokeWidth": 2}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: Middle East & North Africa"}, {"mark": {"type": "line", "stroke": "RED"}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: Middle East & North Africa", "transform": [{"on": "Income", "regression": "LifeExpectancy"}]}], "data": {"name": "data-4efb8da160d6545d52a09b5cb677c3c3"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-4efb8da160d6545d52a09b5cb677c3c3": [{"Country": "Djibouti", "LifeExpectancy": 64.01, "Income": 3016, "Population": 876174.0, "Region": "Middle East & North Africa"}, {"Country": "Yemen", "LifeExpectancy": 67.3, "Income": 3866, "Population": 26183676.0, "Region": "Middle East & North Africa"}, {"Country": "Egypt", "LifeExpectancy": 71.1, "Income": 10792, "Population": 89579670.0, "Region": "Middle East & North Africa"}, {"Country": "Syria", "LifeExpectancy": 71.32, "Income": 5105, "Population": 18772481.0, "Region": "Middle East & North Africa"}, {"Country": "Iraq", "LifeExpectancy": 71.7, "Income": 14018, "Population": 35273293.0, "Region": "Middle East & North Africa"}, {"Country": "Morocco", "LifeExpectancy": 74.5, "Income": 7040, "Population": 33921203.0, "Region": "Middle East & North Africa"}, {"Country": "West Bank and Gaza", "LifeExpectancy": 74.9, "Income": 4493, "Population": 4542059.0, "Region": "Middle East & North Africa"}, {"Country": "Oman", "LifeExpectancy": 75.6, "Income": 48201, "Population": 4236057.0, "Region": "Middle East & North Africa"}, {"Country": "Libya", "LifeExpectancy": 75.9, "Income": 14887, "Population": 6258984.0, "Region": "Middle East & North Africa"}, {"Country": "Algeria", "LifeExpectancy": 76.4, "Income": 13179, "Population": 38934334.0, "Region": "Middle East & North Africa"}, {"Country": "United Arab Emirates", "LifeExpectancy": 76.5, "Income": 60578, "Population": 9086139.0, "Region": "Middle East & North Africa"}, {"Country": "Tunisia", "LifeExpectancy": 77.2, "Income": 10825, "Population": 11130154.0, "Region": "Middle East & North Africa"}, {"Country": "Saudi Arabia", "LifeExpectancy": 78.0, "Income": 52096, "Population": 30886545.0, "Region": "Middle East & North Africa"}, {"Country": "Jordan", "LifeExpectancy": 78.2, "Income": 11496, "Population": 7416083.0, "Region": "Middle East & North Africa"}, {"Country": "Iran", "LifeExpectancy": 78.4, "Income": 15573, "Population": 78143644.0, "Region": "Middle East & North Africa"}, {"Country": "Lebanon", "LifeExpectancy": 78.4, "Income": 16794, "Population": 5612096.0, "Region": "Middle East & North Africa"}, {"Country": "Bahrain", "LifeExpectancy": 79.1, "Income": 43963, "Population": 1361930.0, "Region": "Middle East & North Africa"}, {"Country": "Kuwait", "LifeExpectancy": 80.5, "Income": 83394, "Population": 3753121.0, "Region": "Middle East & North Africa"}, {"Country": "Qatar", "LifeExpectancy": 81.9, "Income": 133563, "Population": 2172065.0, "Region": "Middle East & North Africa"}, {"Country": "Israel", "LifeExpectancy": 82.3, "Income": 31180, "Population": 7939483.0, "Region": "Middle East & North Africa"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

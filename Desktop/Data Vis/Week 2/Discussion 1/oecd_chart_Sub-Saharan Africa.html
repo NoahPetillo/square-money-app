@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point", "shape": "triangle", "strokeWidth": 2}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: Sub-Saharan Africa"}, {"mark": {"type": "line", "stroke": "RED"}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: Sub-Saharan Africa", "transform": [{"on": "Income", "regression": "LifeExpectancy"}]}], "data": {"name": "data-9d55d4332dee9d3a02de9b66bf257079"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-9d55d4332dee9d3a02de9b66bf257079": [{"Country": "Lesotho", "LifeExpectancy": 48.4, "Income": 2494, "Population": 2109197.0, "Region": "Sub-Saharan Africa"}, {"Country": "Swaziland", "LifeExpectancy": 51.1, "Income": 6058, "Population": 1269112.0, "Region": "Sub-Saharan Africa"}, {"Country": "Guinea-Bissau", "LifeExpectancy": 53.1, "Income": 1363, "Population": 1800513.0, "Region": "Sub-Saharan Africa"}, {"Country": "Central African Republic", "LifeExpectancy": 53.3, "Income": 578, "Population": 4804316.0, "Region": "Sub-Saharan Africa"}, {"Country": "Mozambique", "LifeExpectancy": 56.3, "Income": 1115, "Population": 27216276.0, "Region": "Sub-Saharan Africa"}, {"Country": "Chad", "LifeExpectancy": 57.4, "Income": 2141, "Population": 13587053.0, "Region": "Sub-Saharan Africa"}, {"Country": "Mali", "LifeExpectancy": 57.4, "Income": 1653, "Population": 17086022.0, "Region": "Sub-Saharan Africa"}, {"Country": "South Sudan", "LifeExpectancy": 57.6, "Income": 2574, "Population": 11911184.0, "Region": "Sub-Saharan Africa"}, {"Country": "Zambia", "LifeExpectancy": 57.82, "Income": 3898, "Population": 15721343.0, "Region": "Sub-Saharan Africa"}, {"Country": "Democratic Republic of Congo", "LifeExpectancy": 57.9, "Income": 768, "Population": 74877030.0, "Region": "Sub-Saharan Africa"}, {"Country": "Zimbabwe", "LifeExpectancy": 57.97, "Income": 1773, "Population": 15245855.0, "Region": "Sub-Saharan Africa"}, {"Country": "Sierra Leone", "LifeExpectancy": 58.1, "Income": 1959, "Population": 6315627.0, "Region": "Sub-Saharan Africa"}, {"Country": "Somalia", "LifeExpectancy": 58.2, "Income": 621, "Population": 10517569.0, "Region": "Sub-Saharan Africa"}, {"Country": "Malawi", "LifeExpectancy": 58.74, "Income": 778, "Population": 16695253.0, "Region": "Sub-Saharan Africa"}, {"Country": "Cameroon", "LifeExpectancy": 59.1, "Income": 2829, "Population": 22773014.0, "Region": "Sub-Saharan Africa"}, {"Country": "Cote d'Ivoire", "LifeExpectancy": 59.61, "Income": 3324, "Population": 22157107.0, "Region": "Sub-Saharan Africa"}, {"Country": "Equatorial Guinea", "LifeExpectancy": 59.71, "Income": 30783, "Population": 820885.0, "Region": "Sub-Saharan Africa"}, {"Country": "Gabon", "LifeExpectancy": 59.81, "Income": 17912, "Population": 1687673.0, "Region": "Sub-Saharan Africa"}, {"Country": "Burundi", "LifeExpectancy": 60.1, "Income": 758, "Population": 10816860.0, "Region": "Sub-Saharan Africa"}, {"Country": "Uganda", "LifeExpectancy": 60.3, "Income": 1638, "Population": 37782971.0, "Region": "Sub-Saharan Africa"}, {"Country": "Guinea", "LifeExpectancy": 60.5, "Income": 1179, "Population": 12275527.0, "Region": "Sub-Saharan Africa"}, {"Country": "Angola", "LifeExpectancy": 60.7, "Income": 7546, "Population": 24227524.0, "Region": "Sub-Saharan Africa"}, {"Country": "Nigeria", "LifeExpectancy": 60.71, "Income": 5607, "Population": 177475986.0, "Region": "Sub-Saharan Africa"}, {"Country": "Namibia", "LifeExpectancy": 60.8, "Income": 9506, "Population": 2402858.0, "Region": "Sub-Saharan Africa"}, {"Country": "Republic of Congo", "LifeExpectancy": 61.7, "Income": 5905, "Population": 4504962.0, "Region": "Sub-Saharan Africa"}, {"Country": "Niger", "LifeExpectancy": 61.9, "Income": 923, "Population": 19113728.0, "Region": "Sub-Saharan Africa"}, {"Country": "South Africa", "LifeExpectancy": 62.04, "Income": 12446, "Population": 53969054.0, "Region": "Sub-Saharan Africa"}, {"Country": "Burkina Faso", "LifeExpectancy": 62.4, "Income": 1606, "Population": 17589198.0, "Region": "Sub-Saharan Africa"}, {"Country": "Eritrea", "LifeExpectancy": 62.5, "Income": 1140, "Population": 5110444.0, "Region": "Sub-Saharan Africa"}, {"Country": "Tanzania", "LifeExpectancy": 62.81, "Income": 2472, "Population": 51822621.0, "Region": "Sub-Saharan Africa"}, {"Country": "Ethiopia", "LifeExpectancy": 63.1, "Income": 1432, "Population": 96958732.0, "Region": "Sub-Saharan Africa"}, {"Country": "Liberia", "LifeExpectancy": 63.5, "Income": 934, "Population": 4396554.0, "Region": "Sub-Saharan Africa"}, {"Country": "Togo", "LifeExpectancy": 63.61, "Income": 1387, "Population": 7115163.0, "Region": "Sub-Saharan Africa"}, {"Country": "Comoros", "LifeExpectancy": 63.9, "Income": 1459, "Population": 769991.0, "Region": "Sub-Saharan Africa"}, {"Country": "Madagascar", "LifeExpectancy": 64.5, "Income": 1371, "Population": 23571713.0, "Region": "Sub-Saharan Africa"}, {"Country": "Gambia", "LifeExpectancy": 64.7, "Income": 1555, "Population": 1928201.0, "Region": "Sub-Saharan Africa"}, {"Country": "Benin", "LifeExpectancy": 65.2, "Income": 1779, "Population": 10598482.0, "Region": "Sub-Saharan Africa"}, {"Country": "Ghana", "LifeExpectancy": 65.2, "Income": 3953, "Population": 26786598.0, "Region": "Sub-Saharan Africa"}, {"Country": "Mauritania", "LifeExpectancy": 65.4, "Income": 3718, "Population": 3969625.0, "Region": "Sub-Saharan Africa"}, {"Country": "Senegal", "LifeExpectancy": 65.9, "Income": 2206, "Population": 14672557.0, "Region": "Sub-Saharan Africa"}, {"Country": "Kenya", "LifeExpectancy": 65.91, "Income": 2776, "Population": 44863583.0, "Region": "Sub-Saharan Africa"}, {"Country": "Rwanda", "LifeExpectancy": 65.91, "Income": 1485, "Population": 11341544.0, "Region": "Sub-Saharan Africa"}, {"Country": "Botswana", "LifeExpectancy": 66.1, "Income": 16725, "Population": 2219937.0, "Region": "Sub-Saharan Africa"}, {"Country": "Sao Tome and Principe", "LifeExpectancy": 68.6, "Income": 2923, "Population": 186342.0, "Region": "Sub-Saharan Africa"}, {"Country": "Sudan", "LifeExpectancy": 69.2, "Income": 3940, "Population": 39350274.0, "Region": "Sub-Saharan Africa"}, {"Country": "Seychelles", "LifeExpectancy": 73.5, "Income": 25038, "Population": 95868.0, "Region": "Sub-Saharan Africa"}, {"Country": "Mauritius", "LifeExpectancy": 73.6, "Income": 17731, "Population": 1268567.0, "Region": "Sub-Saharan Africa"}, {"Country": "Cape Verde", "LifeExpectancy": 74.4, "Income": 6343, "Population": 513906.0, "Region": "Sub-Saharan Africa"}, {"Country": "St. Lucia", "LifeExpectancy": 74.5, "Income": 9917, "Population": 183645.0, "Region": "Sub-Saharan Africa"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

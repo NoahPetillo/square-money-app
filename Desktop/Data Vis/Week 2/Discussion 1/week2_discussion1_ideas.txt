@@ -1,0 +1,9 @@
+x axis = income, y axis = life expectancy.
+this can be plotted for each individual country, 
+with an additional line highlighting upward slope
+Then also doing it with all countries together
+
+
+
+
+

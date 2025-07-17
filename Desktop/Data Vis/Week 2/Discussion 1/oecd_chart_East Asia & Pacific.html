@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point", "shape": "triangle", "strokeWidth": 2}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: East Asia & Pacific"}, {"mark": {"type": "line", "stroke": "RED"}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: East Asia & Pacific", "transform": [{"on": "Income", "regression": "LifeExpectancy"}]}], "data": {"name": "data-1956ac41c71725d7b41c1e66e6b18cce"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-1956ac41c71725d7b41c1e66e6b18cce": [{"Country": "Papua New Guinea", "LifeExpectancy": 60.2, "Income": 2510, "Population": 7463577.0, "Region": "East Asia & Pacific"}, {"Country": "Kiribati", "LifeExpectancy": 62.2, "Income": 1822, "Population": 110470.0, "Region": "East Asia & Pacific"}, {"Country": "Solomon Islands", "LifeExpectancy": 63.9, "Income": 2030, "Population": 572171.0, "Region": "East Asia & Pacific"}, {"Country": "Vanuatu", "LifeExpectancy": 64.8, "Income": 2837, "Population": 258883.0, "Region": "East Asia & Pacific"}, {"Country": "Marshall Islands", "LifeExpectancy": 64.9, "Income": 3638, "Population": 52898.0, "Region": "East Asia & Pacific"}, {"Country": "Mongolia", "LifeExpectancy": 65.0, "Income": 11509, "Population": 2909871.0, "Region": "East Asia & Pacific"}, {"Country": "Lao", "LifeExpectancy": 66.1, "Income": 4925, "Population": 6689300.0, "Region": "East Asia & Pacific"}, {"Country": "Fiji", "LifeExpectancy": 66.2, "Income": 7735, "Population": 886450.0, "Region": "East Asia & Pacific"}, {"Country": "Federated States of Micronesia", "LifeExpectancy": 66.9, "Income": 3475, "Population": 104044.0, "Region": "East Asia & Pacific"}, {"Country": "Myanmar", "LifeExpectancy": 67.5, "Income": 3727, "Population": 53437159.0, "Region": "East Asia & Pacific"}, {"Country": "Cambodia", "LifeExpectancy": 68.1, "Income": 3093, "Population": 15328136.0, "Region": "East Asia & Pacific"}, {"Country": "Philippines", "LifeExpectancy": 70.1, "Income": 6598, "Population": 99138690.0, "Region": "East Asia & Pacific"}, {"Country": "Tonga", "LifeExpectancy": 70.4, "Income": 4962, "Population": 105586.0, "Region": "East Asia & Pacific"}, {"Country": "Indonesia", "LifeExpectancy": 70.7, "Income": 10099, "Population": 254454778.0, "Region": "East Asia & Pacific"}, {"Country": "North Korea", "LifeExpectancy": 71.3, "Income": 1391, "Population": 25026772.0, "Region": "East Asia & Pacific"}, {"Country": "Timor-Leste", "LifeExpectancy": 71.9, "Income": 2173, "Population": 1157360.0, "Region": "East Asia & Pacific"}, {"Country": "Samoa", "LifeExpectancy": 72.0, "Income": 5525, "Population": 191845.0, "Region": "East Asia & Pacific"}, {"Country": "Malaysia", "LifeExpectancy": 74.9, "Income": 23579, "Population": 29901997.0, "Region": "East Asia & Pacific"}, {"Country": "Thailand", "LifeExpectancy": 75.0, "Income": 13986, "Population": 67725979.0, "Region": "East Asia & Pacific"}, {"Country": "Vietnam", "LifeExpectancy": 76.4, "Income": 5370, "Population": 92423338.0, "Region": "East Asia & Pacific"}, {"Country": "China", "LifeExpectancy": 76.7, "Income": 12609, "Population": 1369435670.0, "Region": "East Asia & Pacific"}, {"Country": "Brunei", "LifeExpectancy": 78.7, "Income": 72219, "Population": 417394.0, "Region": "East Asia & Pacific"}, {"Country": "Taiwan", "LifeExpectancy": 79.5, "Income": 41376, "Population": null, "Region": "East Asia & Pacific"}, {"Country": "South Korea", "LifeExpectancy": 80.6, "Income": 33629, "Population": 50074401.0, "Region": "East Asia & Pacific"}, {"Country": "New Zealand", "LifeExpectancy": 80.6, "Income": 33538, "Population": 4495482.0, "Region": "East Asia & Pacific"}, {"Country": "Australia", "LifeExpectancy": 81.8, "Income": 43219, "Population": 23622353.0, "Region": "East Asia & Pacific"}, {"Country": "Singapore", "LifeExpectancy": 82.0, "Income": 78958, "Population": 5506586.0, "Region": "East Asia & Pacific"}, {"Country": "Japan", "LifeExpectancy": 83.4, "Income": 35635, "Population": 126794564.0, "Region": "East Asia & Pacific"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

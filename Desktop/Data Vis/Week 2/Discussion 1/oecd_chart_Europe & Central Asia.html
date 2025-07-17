@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point", "shape": "triangle", "strokeWidth": 2}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: Europe & Central Asia"}, {"mark": {"type": "line", "stroke": "RED"}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: Europe & Central Asia", "transform": [{"on": "Income", "regression": "LifeExpectancy"}]}], "data": {"name": "data-c1333520786c2b330f3f965dad787a84"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-c1333520786c2b330f3f965dad787a84": [{"Country": "Turkmenistan", "LifeExpectancy": 67.7, "Income": 14762, "Population": 5307188.0, "Region": "Europe & Central Asia"}, {"Country": "Kazakhstan", "LifeExpectancy": 68.0, "Income": 23092, "Population": 17371621.0, "Region": "Europe & Central Asia"}, {"Country": "Kyrgyz Republic", "LifeExpectancy": 68.8, "Income": 3169, "Population": 5843617.0, "Region": "Europe & Central Asia"}, {"Country": "Uzbekistan", "LifeExpectancy": 69.9, "Income": 5320, "Population": 29469913.0, "Region": "Europe & Central Asia"}, {"Country": "Belarus", "LifeExpectancy": 70.3, "Income": 17349, "Population": 9500422.0, "Region": "Europe & Central Asia"}, {"Country": "Tajikistan", "LifeExpectancy": 70.8, "Income": 2533, "Population": 8295840.0, "Region": "Europe & Central Asia"}, {"Country": "Ukraine", "LifeExpectancy": 71.9, "Income": 8267, "Population": 45002497.0, "Region": "Europe & Central Asia"}, {"Country": "Russia", "LifeExpectancy": 72.21, "Income": 23293, "Population": 143429435.0, "Region": "Europe & Central Asia"}, {"Country": "Moldova", "LifeExpectancy": 72.3, "Income": 4754, "Population": 4072340.0, "Region": "Europe & Central Asia"}, {"Country": "Azerbaijan", "LifeExpectancy": 72.6, "Income": 16710, "Population": 9629779.0, "Region": "Europe & Central Asia"}, {"Country": "Georgia", "LifeExpectancy": 73.1, "Income": 7233, "Population": 4034774.0, "Region": "Europe & Central Asia"}, {"Country": "Armenia", "LifeExpectancy": 74.1, "Income": 7763, "Population": 3006154.0, "Region": "Europe & Central Asia"}, {"Country": "Bulgaria", "LifeExpectancy": 74.7, "Income": 16048, "Population": 7201308.0, "Region": "Europe & Central Asia"}, {"Country": "Lithuania", "LifeExpectancy": 75.2, "Income": 25708, "Population": 2916798.0, "Region": "Europe & Central Asia"}, {"Country": "Latvia", "LifeExpectancy": 75.5, "Income": 22460, "Population": 1989354.0, "Region": "Europe & Central Asia"}, {"Country": "Montenegro", "LifeExpectancy": 75.7, "Income": 14358, "Population": 625292.0, "Region": "Europe & Central Asia"}, {"Country": "Albania", "LifeExpectancy": 75.9, "Income": 10160, "Population": 2889676.0, "Region": "Europe & Central Asia"}, {"Country": "Hungary", "LifeExpectancy": 76.0, "Income": 23609, "Population": 9889540.0, "Region": "Europe & Central Asia"}, {"Country": "Slovak Republic", "LifeExpectancy": 76.3, "Income": 26355, "Population": 5422861.0, "Region": "Europe & Central Asia"}, {"Country": "Romania", "LifeExpectancy": 76.4, "Income": 18569, "Population": 19651554.0, "Region": "Europe & Central Asia"}, {"Country": "Turkey", "LifeExpectancy": 76.4, "Income": 18884, "Population": 77523788.0, "Region": "Europe & Central Asia"}, {"Country": "Estonia", "LifeExpectancy": 76.7, "Income": 25865, "Population": 1316203.0, "Region": "Europe & Central Asia"}, {"Country": "Macedonia", "LifeExpectancy": 76.8, "Income": 12096, "Population": 2075625.0, "Region": "Europe & Central Asia"}, {"Country": "Poland", "LifeExpectancy": 77.1, "Income": 23952, "Population": 38619974.0, "Region": "Europe & Central Asia"}, {"Country": "Bosnia and Herzegovina", "LifeExpectancy": 77.7, "Income": 9516, "Population": 3817554.0, "Region": "Europe & Central Asia"}, {"Country": "Croatia", "LifeExpectancy": 77.9, "Income": 20060, "Population": 4255853.0, "Region": "Europe & Central Asia"}, {"Country": "Serbia", "LifeExpectancy": 77.9, "Income": 12717, "Population": 8892815.0, "Region": "Europe & Central Asia"}, {"Country": "Czech Republic", "LifeExpectancy": 78.4, "Income": 28695, "Population": 10542666.0, "Region": "Europe & Central Asia"}, {"Country": "Greece", "LifeExpectancy": 79.8, "Income": 24502, "Population": 11000777.0, "Region": "Europe & Central Asia"}, {"Country": "Portugal", "LifeExpectancy": 79.8, "Income": 26055, "Population": 10402343.0, "Region": "Europe & Central Asia"}, {"Country": "Denmark", "LifeExpectancy": 80.0, "Income": 42777, "Population": 5646899.0, "Region": "Europe & Central Asia"}, {"Country": "Slovenia", "LifeExpectancy": 80.1, "Income": 28059, "Population": 2066068.0, "Region": "Europe & Central Asia"}, {"Country": "Belgium", "LifeExpectancy": 80.3, "Income": 40885, "Population": 11226322.0, "Region": "Europe & Central Asia"}, {"Country": "Ireland", "LifeExpectancy": 80.4, "Income": 46633, "Population": 4675164.0, "Region": "Europe & Central Asia"}, {"Country": "Netherlands", "LifeExpectancy": 80.6, "Income": 45281, "Population": 16868020.0, "Region": "Europe & Central Asia"}, {"Country": "Finland", "LifeExpectancy": 80.7, "Income": 38569, "Population": 5479660.0, "Region": "Europe & Central Asia"}, {"Country": "Austria", "LifeExpectancy": 80.9, "Income": 43906, "Population": 8516916.0, "Region": "Europe & Central Asia"}, {"Country": "Germany", "LifeExpectancy": 80.9, "Income": 43444, "Population": 80646262.0, "Region": "Europe & Central Asia"}, {"Country": "Luxembourg", "LifeExpectancy": 81.1, "Income": 88203, "Population": 556573.0, "Region": "Europe & Central Asia"}, {"Country": "United Kingdom", "LifeExpectancy": 81.2, "Income": 37614, "Population": 64331348.0, "Region": "Europe & Central Asia"}, {"Country": "Norway", "LifeExpectancy": 81.5, "Income": 64020, "Population": 5147970.0, "Region": "Europe & Central Asia"}, {"Country": "Spain", "LifeExpectancy": 81.7, "Income": 32270, "Population": 46259716.0, "Region": "Europe & Central Asia"}, {"Country": "France", "LifeExpectancy": 81.8, "Income": 37218, "Population": 64121249.0, "Region": "Europe & Central Asia"}, {"Country": "Sweden", "LifeExpectancy": 81.9, "Income": 44029, "Population": 9703247.0, "Region": "Europe & Central Asia"}, {"Country": "Italy", "LifeExpectancy": 82.1, "Income": 33078, "Population": 59788667.0, "Region": "Europe & Central Asia"}, {"Country": "Malta", "LifeExpectancy": 82.1, "Income": 29508, "Population": 417723.0, "Region": "Europe & Central Asia"}, {"Country": "Cyprus", "LifeExpectancy": 82.4, "Income": 29673, "Population": 1153658.0, "Region": "Europe & Central Asia"}, {"Country": "Iceland", "LifeExpectancy": 82.8, "Income": 41237, "Population": 327318.0, "Region": "Europe & Central Asia"}, {"Country": "Switzerland", "LifeExpectancy": 82.8, "Income": 55776, "Population": 8211383.0, "Region": "Europe & Central Asia"}, {"Country": "Andorra", "LifeExpectancy": 84.0, "Income": 44929, "Population": 72786.0, "Region": "Europe & Central Asia"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "point", "shape": "triangle", "strokeWidth": 2}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: America"}, {"mark": {"type": "line", "stroke": "RED"}, "encoding": {"color": {"value": "#1580A3"}, "x": {"field": "Income", "type": "quantitative"}, "y": {"field": "LifeExpectancy", "type": "quantitative"}}, "title": "Region: America", "transform": [{"on": "Income", "regression": "LifeExpectancy"}]}], "data": {"name": "data-7e95036df9e45a2c84fc25ccdf357197"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-7e95036df9e45a2c84fc25ccdf357197": [{"Country": "Guyana", "LifeExpectancy": 64.2, "Income": 6545, "Population": 763893.0, "Region": "America"}, {"Country": "Haiti", "LifeExpectancy": 64.8, "Income": 1670, "Population": 10572029.0, "Region": "America"}, {"Country": "Belize", "LifeExpectancy": 70.0, "Income": 8418, "Population": 351706.0, "Region": "America"}, {"Country": "Suriname", "LifeExpectancy": 70.3, "Income": 16649, "Population": 538248.0, "Region": "America"}, {"Country": "Trinidad and Tobago", "LifeExpectancy": 71.3, "Income": 29820, "Population": 1354483.0, "Region": "America"}, {"Country": "Grenada", "LifeExpectancy": 71.6, "Income": 11400, "Population": 106349.0, "Region": "America"}, {"Country": "Bolivia", "LifeExpectancy": 72.1, "Income": 6153, "Population": 10561887.0, "Region": "America"}, {"Country": "Honduras", "LifeExpectancy": 72.2, "Income": 4214, "Population": 7961680.0, "Region": "America"}, {"Country": "Bahamas", "LifeExpectancy": 72.4, "Income": 22439, "Population": 383054.0, "Region": "America"}, {"Country": "Guatemala", "LifeExpectancy": 72.7, "Income": 7181, "Population": 16015494.0, "Region": "America"}, {"Country": "St. Vincent and the Grenadines", "LifeExpectancy": 72.8, "Income": 10131, "Population": 109360.0, "Region": "America"}, {"Country": "Dominican Republic", "LifeExpectancy": 73.7, "Income": 12505, "Population": 10405943.0, "Region": "America"}, {"Country": "Paraguay", "LifeExpectancy": 73.8, "Income": 8038, "Population": 6552518.0, "Region": "America"}, {"Country": "El Salvador", "LifeExpectancy": 74.0, "Income": 7613, "Population": 6107706.0, "Region": "America"}, {"Country": "Dominica", "LifeExpectancy": 74.5, "Income": 10207, "Population": 72341.0, "Region": "America"}, {"Country": "Ecuador", "LifeExpectancy": 75.0, "Income": 10774, "Population": 15902916.0, "Region": "America"}, {"Country": "Mexico", "LifeExpectancy": 75.0, "Income": 16496, "Population": 125385833.0, "Region": "America"}, {"Country": "Antigua and Barbuda", "LifeExpectancy": 75.2, "Income": 20797, "Population": 90900.0, "Region": "America"}, {"Country": "Brazil", "LifeExpectancy": 75.3, "Income": 15412, "Population": 206077898.0, "Region": "America"}, {"Country": "Jamaica", "LifeExpectancy": 75.5, "Income": 8462, "Population": 2783301.0, "Region": "America"}, {"Country": "Venezuela", "LifeExpectancy": 75.6, "Income": 16666, "Population": 30693827.0, "Region": "America"}, {"Country": "Barbados", "LifeExpectancy": 75.7, "Income": 12829, "Population": 283380.0, "Region": "America"}, {"Country": "Colombia", "LifeExpectancy": 75.7, "Income": 12447, "Population": 47791393.0, "Region": "America"}, {"Country": "Argentina", "LifeExpectancy": 76.1, "Income": 17519, "Population": 42980026.0, "Region": "America"}, {"Country": "Nicaragua", "LifeExpectancy": 76.6, "Income": 4574, "Population": 6013913.0, "Region": "America"}, {"Country": "Uruguay", "LifeExpectancy": 77.1, "Income": 19929, "Population": 3419516.0, "Region": "America"}, {"Country": "Peru", "LifeExpectancy": 77.3, "Income": 11514, "Population": 30973148.0, "Region": "America"}, {"Country": "Panama", "LifeExpectancy": 78.0, "Income": 19637, "Population": 3867535.0, "Region": "America"}, {"Country": "Cuba", "LifeExpectancy": 78.4, "Income": 20704, "Population": 11379111.0, "Region": "America"}, {"Country": "United States", "LifeExpectancy": 79.0, "Income": 52118, "Population": 319448634.0, "Region": "America"}, {"Country": "Chile", "LifeExpectancy": 79.2, "Income": 21967, "Population": 17762647.0, "Region": "America"}, {"Country": "Costa Rica", "LifeExpectancy": 79.9, "Income": 13713, "Population": 4757606.0, "Region": "America"}, {"Country": "Canada", "LifeExpectancy": 81.6, "Income": 42817, "Population": 35587793.0, "Region": "America"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

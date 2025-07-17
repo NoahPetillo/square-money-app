@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-8dc55c593b9fae1e30ceb03de9db3664"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "accent", "type": "nominal"}, "tooltip": [{"field": "accent", "type": "nominal"}, {"field": "Failure_Type", "type": "nominal"}, {"field": "count", "type": "quantitative"}], "x": {"field": "Failure_Type", "title": "Failure Type", "type": "nominal"}, "y": {"field": "count", "title": "Count", "type": "quantitative"}}, "title": "Failure Types Experienced by Users with/without Accents", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-8dc55c593b9fae1e30ceb03de9db3664": [{"accent": "Maybe", "Failure_Type": "Attention", "count": 16}, {"accent": "Maybe", "Failure_Type": "Perception", "count": 20}, {"accent": "Maybe", "Failure_Type": "Response", "count": 4}, {"accent": "Maybe", "Failure_Type": "Understanding", "count": 31}, {"accent": "No", "Failure_Type": "Attention", "count": 20}, {"accent": "No", "Failure_Type": "Perception", "count": 24}, {"accent": "No", "Failure_Type": "Response", "count": 19}, {"accent": "No", "Failure_Type": "Understanding", "count": 34}, {"accent": "Unknown", "Failure_Type": "Attention", "count": 1}, {"accent": "Unknown", "Failure_Type": "Understanding", "count": 2}, {"accent": "Yes", "Failure_Type": "Attention", "count": 7}, {"accent": "Yes", "Failure_Type": "Perception", "count": 7}, {"accent": "Yes", "Failure_Type": "Response", "count": 5}, {"accent": "Yes", "Failure_Type": "Understanding", "count": 9}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

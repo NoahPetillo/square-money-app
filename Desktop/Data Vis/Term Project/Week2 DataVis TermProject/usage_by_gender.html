@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-d17d7a741c9c4f670eddad313d8b57fe"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "gender", "type": "nominal"}, "tooltip": [{"field": "gender", "type": "nominal"}, {"field": "count", "type": "quantitative"}], "x": {"field": "gender", "title": "Gender", "type": "nominal"}, "y": {"field": "count", "title": "Number of Users", "type": "quantitative"}}, "title": "Voice Assistant Usage by Gender", "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-d17d7a741c9c4f670eddad313d8b57fe": [{"gender": "Man", "count": 101}, {"gender": "Woman", "count": 90}, {"gender": "Prefer Not To Answer", "count": 4}, {"gender": "Unknown", "count": 3}, {"gender": "Man,Woman", "count": 1}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
